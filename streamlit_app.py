@@ -37,11 +37,6 @@ try:
 except URLError as e:
     streamlit.error()
 
-# JSON Normalization of data to put in a pandas 
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-# Put data in streamlit
-streamlit.dataframe(fruityvice_normalized)
-
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
